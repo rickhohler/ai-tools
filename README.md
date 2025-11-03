@@ -28,3 +28,21 @@ models:
     provider: ollama
     model: AUTODETECT
 ```
+
+```yaml
+name: Local Config
+version: 1.0.0
+schema: v1
+models:
+  - name: DeepSeek R1 32B
+    provider: ollama
+    model: deepseek-r1:32b
+    roles:
+      - chat
+      - edit
+  - name: Qwen2.5-Coder 1.5B
+    provider: ollama
+    model: qwen2.5-coder:1.5b
+    roles:
+      - autocomplete
+```
