@@ -13,6 +13,8 @@ ollama pull qwen2.5-coder:32b
 
 ## Setup Continue in VS Code
 
+[Using Ollama with Continue](https://docs.continue.dev/guides/ollama-guide)
+
 Install ***Continue** plug in
 
 ***local config.yaml***
