@@ -1,0 +1,25 @@
+# Warp AI Project Guide for __PROJECT_NAME__
+
+> **Centralized Documentation**: `__CENTRAL_DOCS__`
+
+This project references centralized AI tool standards, patterns, and guides:
+- **Standards**: `__CENTRAL_DOCS__/standards`
+- **Patterns**: `__CENTRAL_DOCS__/patterns`
+- **Guides**: `__CENTRAL_DOCS__/guides`
+
+## Project Context
+
+- **Name**: __PROJECT_NAME__
+- **Path**: `__PROJECT_PATH__`
+- **Domain**: __PROJECT_DOMAIN__
+
+## Project-Specific Rules and Notes
+
+__ADDITIONAL_RULES__
+
+## Journaling
+
+Daily personal observations and learnings are tracked in:
+- **Location**: `~/CODE/GITHUB/ai-tools/journal/YYYY/MM-DD.md`
+- **Format**: Timestamped entries with tool-specific notes
+- **Helper**: Use `~/CODE/GITHUB/ai-tools/scripts/journal.sh` for quick entries

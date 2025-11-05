@@ -1,0 +1,16 @@
+{
+  "project": {
+    "name": "__PROJECT_NAME__",
+    "path": "__PROJECT_PATH__",
+    "domain": "__PROJECT_DOMAIN__"
+  },
+  "references": [
+    "__CENTRAL_DOCS__/standards",
+    "__CENTRAL_DOCS__/patterns",
+    "__CENTRAL_DOCS__/guides"
+  ],
+  "system_message": "Use centralized docs at __CENTRAL_DOCS__ for standards, patterns, and guides. Apply project-specific rules after shared rules.",
+  "project_rules": [
+    "__ADDITIONAL_RULES__"
+  ]
+}

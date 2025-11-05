@@ -1,0 +1,23 @@
+# Cursor Rules for __PROJECT_NAME__
+
+## Documentation Reference
+docs_url: __CENTRAL_DOCS__
+
+## Shared Standards
+Reference these centralized locations as the source of truth:
+- __CENTRAL_DOCS__/standards
+- __CENTRAL_DOCS__/patterns
+- __CENTRAL_DOCS__/guides
+
+## Core Principles
+- Prefer centralized docs as the single source of truth
+- Only add project-specific overrides where necessary
+- When in doubt, reference the shared standards in __CENTRAL_DOCS__
+
+## Project Context
+name: __PROJECT_NAME__
+path: __PROJECT_PATH__
+domain: __PROJECT_DOMAIN__
+
+## Project-Specific Rules
+__ADDITIONAL_RULES__
