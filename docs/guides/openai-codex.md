@@ -3,9 +3,9 @@
 ## Current Status
 
 **Original Codex API**: Deprecated in March 2023  
-**New Codex Suite**: Relaunched in late 2024/2025 as AI software engineering tools
+**Current Codex**: Relaunched as a coding agent at [chatgpt.com/features/codex](https://chatgpt.com/features/codex)
 
-OpenAI has relaunched "Codex" as a suite of AI software engineering tools powered by newer models (GPT-4o, GPT-5-Codex). This is separate from the original Codex API that was deprecated.
+Codex is now a coding agent accessible through ChatGPT, not an API or VS Code extension. It's powered by advanced models (GPT-4o, o1) and provides autonomous coding assistance.
 
 ## For Users of Original Codex API (2021-2023)
 
@@ -40,14 +40,27 @@ response = client.chat.completions.create(
 )
 ```
 
-### 3. Alternative Tools
+### 3. Use Codex Coding Agent
 
-Consider these alternatives:
-- **GitHub Copilot** - Primary recommendation
-- **Cursor** - AI-first IDE
-- **Continue** - Open-source Copilot alternative
+**Access**: [chatgpt.com/features/codex](https://chatgpt.com/features/codex)
+
+**Codex is a coding agent that:**
+- Runs autonomously to solve coding problems
+- Can read and edit files
+- Executes code and tests
+- Iterates on solutions
+- Integrated directly in ChatGPT interface
+
+**No project template needed** - Codex is used through the ChatGPT web interface, not as a local IDE integration.
+
+### 4. Alternative AI Coding Tools
+
+Other options to consider:
+- **GitHub Copilot** - Primary recommendation (GitHub subscription)
+- **Cursor** - AI-first IDE (uses various models)
+- **Continue** - Open-source, supports multiple providers
 - **Warp AI** - Terminal with AI assistance
-- **Codeium** - Free GitHub Copilot alternative
+- **Codeium** - Free alternative to Copilot
 
 ## Codex Evolution
 
