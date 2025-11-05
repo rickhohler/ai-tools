@@ -94,9 +94,26 @@ docs_url: ~/ai-tools/docs
 
 ### GitHub Copilot
 
-**No dedicated config file** - Use in-code comments and documentation links
+**File**: `.github-copilot` in project root
+
+**Purpose**: Configuration and guidelines for GitHub Copilot usage
+
+**Format**: Markdown
 
 **Example**:
+```markdown
+# GitHub Copilot Configuration for my-app
+
+## Centralized Documentation
+Reference: ~/ai-tools/docs
+
+## Project-Specific Rules
+- Use PostgreSQL for production
+- Follow Python standards strictly
+- Include type hints in all functions
+```
+
+**In-Code Usage**:
 ```python
 # Reference: ~/ai-tools/docs/standards/python.md
 # This module follows centralized Python standards
@@ -104,6 +121,15 @@ docs_url: ~/ai-tools/docs
 def process_data():
     """Process data according to standards."""
     pass
+```
+
+**VS Code Settings**: Add to `.vscode/settings.json`:
+```json
+{
+  "github.copilot.advanced": {
+    "contextFiles": [".github-copilot", "README.md"]
+  }
+}
 ```
 
 ## Applying Templates

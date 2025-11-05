@@ -1,0 +1,67 @@
+# GitHub Copilot Configuration for __PROJECT_NAME__
+
+## Centralized Documentation
+
+Reference: `__CENTRAL_DOCS__`
+
+All projects should follow centralized standards, patterns, and guides:
+- Standards: `__CENTRAL_DOCS__/standards`
+- Patterns: `__CENTRAL_DOCS__/patterns`
+- Guides: `__CENTRAL_DOCS__/guides`
+
+## Project Context
+
+- **Name**: __PROJECT_NAME__
+- **Path**: `__PROJECT_PATH__`
+- **Domain**: __PROJECT_DOMAIN__
+
+## Project-Specific Rules
+
+__ADDITIONAL_RULES__
+
+## Copilot Usage Guidelines
+
+### In-Code References
+
+Use comments to guide Copilot:
+
+```
+# Reference: ~/ai-tools/docs/standards/[language].md
+# This module follows centralized [language] standards
+```
+
+### Best Practices
+
+- Reference centralized docs in comments when starting new files
+- Use descriptive function/class names that align with standards
+- Include type hints and docstrings (Copilot learns from these)
+- Keep comments focused and specific
+- Review Copilot suggestions against project standards
+
+### Language-Specific Standards
+
+Ensure Copilot suggestions follow:
+- Code formatting standards
+- Naming conventions
+- Testing patterns
+- Error handling patterns
+- Documentation style
+
+## Workspace Settings
+
+Place this file in project root and reference in workspace settings.
+
+For VS Code, add to `.vscode/settings.json`:
+```json
+{
+  "github.copilot.enable": {
+    "*": true
+  },
+  "github.copilot.advanced": {
+    "contextFiles": [
+      ".github-copilot",
+      "README.md"
+    ]
+  }
+}
+```

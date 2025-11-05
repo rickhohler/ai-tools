@@ -28,7 +28,8 @@ ai-tools/
 ├── templates/           # Config templates for projects
 │   ├── warp.md.template
 │   ├── .cursorrules.template
-│   └── .continue-config.template
+│   ├── .continue-config.template
+│   └── .github-copilot.template
 ├── journal/
 │   └── YYYY/            # Daily files: MM-DD.md
 ├── scripts/
@@ -111,6 +112,7 @@ The system is language-agnostic - add standards for any language your projects u
 ### Guides
 
 - [Ollama Local Setup](docs/guides/ollama-guide.md) - Local LLM setup with Continue
+- [OpenAI Codex](docs/guides/openai-codex.md) - Migration guide (Codex is deprecated, use GitHub Copilot)
 
 ### Usage
 
@@ -122,7 +124,7 @@ The system is language-agnostic - add standards for any language your projects u
 - **Warp Terminal** - Uses `warp.md` in project root
 - **Cursor** - Uses `.cursorrules` in project root
 - **Continue (VS Code)** - Uses `.continue-config` in project root
-- **GitHub Copilot** - Use in-code comments and links to centralized docs
+- **GitHub Copilot** - Uses `.github-copilot` in project root with in-code comment references
 
 ## Maintenance
 
