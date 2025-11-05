@@ -29,7 +29,8 @@ ai-tools/
 │   ├── warp.md.template
 │   ├── .cursorrules.template
 │   ├── .continue-config.template
-│   └── .github-copilot.template
+│   ├── .github-copilot.template
+│   └── .openai-codex.template
 ├── journal/
 │   └── YYYY/            # Daily files: YYYY-MM-DD.md
 ├── scripts/
@@ -55,7 +56,9 @@ Example:
 
 Common project domains:
 - `web-app` - Web applications
-- `mobile-app` - Mobile applications (iOS/Android/Flutter)
+- `mobile-app-flutter` - Flutter cross-platform mobile apps
+- `mobile-app-ios` - Native iOS apps (Swift/SwiftUI)
+- `mobile-app-android` - Native Android apps (Kotlin/Jetpack Compose)
 - `cli-tool` - Command-line tools
 - `library` - Shared libraries or packages
 - `api-service` - Backend API services
@@ -75,7 +78,7 @@ Templates use these placeholders:
 - `__CENTRAL_DOCS__` - Path to centralized docs (default: `~/ai-tools/docs`)
 - `__PROJECT_NAME__` - Project name (derived from directory)
 - `__PROJECT_PATH__` - Absolute path to project
-- `__PROJECT_DOMAIN__` - Project category/type (e.g., web-app, mobile-app, cli-tool, library, api-service, data-science, desktop-app)
+- `__PROJECT_DOMAIN__` - Project category/type (e.g., web-app, mobile-app-flutter, mobile-app-ios, mobile-app-android, cli-tool, library, api-service, data-science, desktop-app)
 - `__ADDITIONAL_RULES__` - Project-specific rules (you fill this in)
 
 The setup script automatically replaces placeholders except `__ADDITIONAL_RULES__`, which you customize manually.
@@ -126,6 +129,7 @@ The system is language-agnostic - add standards for any language your projects u
 - **Cursor** - Uses `.cursorrules` in project root
 - **Continue (VS Code)** - Uses `.continue-config` in project root
 - **GitHub Copilot** - Uses `.github-copilot` in project root with in-code comment references
+- **OpenAI Codex (VS Code)** - Uses `.openai-codex` in project root (requires ChatGPT Plus/Pro/Business/Enterprise)
 
 ## Maintenance
 

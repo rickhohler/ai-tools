@@ -8,7 +8,7 @@ if [ "${1-}" = "" ]; then
   echo "  scripts/setup-project.sh ~/projects/my-app web-app"
   echo "  scripts/setup-project.sh ~/projects/my-tool cli-tool"
   echo ""
-  echo "Common domains: web-app, mobile-app, cli-tool, library, api-service, data-science, desktop-app"
+  echo "Common domains: web-app, mobile-app-flutter, mobile-app-ios, mobile-app-android, cli-tool, library, api-service, data-science, desktop-app"
   exit 1
 fi
 
@@ -39,9 +39,10 @@ copy_and_customize "$TEMPLATES_DIR/warp.md.template" "$PROJECT_PATH/warp.md"
 copy_and_customize "$TEMPLATES_DIR/.cursorrules.template" "$PROJECT_PATH/.cursorrules"
 copy_and_customize "$TEMPLATES_DIR/.continue-config.template" "$PROJECT_PATH/.continue-config"
 copy_and_customize "$TEMPLATES_DIR/.github-copilot.template" "$PROJECT_PATH/.github-copilot"
+copy_and_customize "$TEMPLATES_DIR/.openai-codex.template" "$PROJECT_PATH/.openai-codex"
 
 echo "✓ Installed AI tools templates into $PROJECT_PATH"
 echo ""
 echo "Next steps:"
-echo "1) Edit warp.md, .cursorrules, .continue-config, and .github-copilot to replace __ADDITIONAL_RULES__ with project-specific rules."
+echo "1) Edit warp.md, .cursorrules, .continue-config, .github-copilot, and .openai-codex to replace __ADDITIONAL_RULES__ with project-specific rules."
 echo "2) Confirm __PROJECT_DOMAIN__ is set appropriately. If blank, rerun with a domain value."

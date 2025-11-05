@@ -1,0 +1,77 @@
+# OpenAI Codex Configuration for __PROJECT_NAME__
+
+> **Extension**: `openai.chatgpt` (VS Code Marketplace)
+> **Plans**: ChatGPT Plus, Pro, Business, Edu, Enterprise
+> **Docs**: https://developers.openai.com/codex/ide
+
+## Centralized Documentation
+
+Reference: `__CENTRAL_DOCS__`
+
+## Project Context
+
+- **Name**: __PROJECT_NAME__
+- **Path**: __PROJECT_PATH__
+- **Domain**: __PROJECT_DOMAIN__
+
+## Shared Standards
+
+Codex should follow these centralized standards:
+
+- `__CENTRAL_DOCS__/standards/` - Language-specific coding standards
+- `__CENTRAL_DOCS__/patterns/` - AI prompting patterns and workflows
+- `__CENTRAL_DOCS__/guides/` - Tool-specific guides
+
+## Usage Guidelines
+
+### Pair with Codex Panel
+
+1. Open Codex panel in VS Code (many users prefer right side)
+2. Use context from opened files and selected code
+3. Write shorter prompts for faster, more relevant results
+
+### Delegate to Cloud
+
+For larger tasks:
+1. Offload to Codex in the cloud
+2. Track progress in VS Code
+3. Review results and open locally for finishing touches
+4. Context remains consistent across cloud and local work
+
+### ChatGPT macOS App Integration (macOS only)
+
+1. Launch ChatGPT macOS app
+2. Select "Work with VS Code"
+3. ChatGPT can now answer questions and make simple edits
+
+## Best Practices
+
+- **Context Management**: Keep relevant files open for better suggestions
+- **Code Selection**: Select code before prompting for targeted results
+- **Cloud Tasks**: Use for complex refactoring, feature additions, test generation
+- **Local Panel**: Use for quick edits, explanations, and code reviews
+- **Prompt Style**: Reference centralized standards in prompts (e.g., "Follow Python standards at __CENTRAL_DOCS__/standards/python.md")
+
+## VS Code Settings
+
+Add to `.vscode/settings.json`:
+
+```json
+{
+  "openai.contextFiles": [
+    ".openai-codex",
+    "README.md",
+    "__CENTRAL_DOCS__/standards/__PROJECT_DOMAIN__.md"
+  ]
+}
+```
+
+## Project-Specific Rules and Notes
+
+__ADDITIONAL_RULES__
+
+## Resources
+
+- [Codex Documentation](https://developers.openai.com/codex/ide)
+- [ChatGPT Help Center](https://help.openai.com/)
+- [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt)

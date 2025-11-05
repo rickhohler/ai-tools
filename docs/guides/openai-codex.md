@@ -3,9 +3,12 @@
 ## Current Status
 
 **Original Codex API**: Deprecated in March 2023  
-**Current Codex**: Relaunched as a coding agent at [chatgpt.com/features/codex](https://chatgpt.com/features/codex)
+**Current Codex**: Relaunched as a coding agent with multiple access points:
+- Web interface: [chatgpt.com/features/codex](https://chatgpt.com/features/codex)
+- VS Code extension: `openai.chatgpt` (requires ChatGPT Plus/Pro/Business/Enterprise)
+- ChatGPT macOS app with IDE integration
 
-Codex is now a coding agent accessible through ChatGPT, not an API or VS Code extension. It's powered by advanced models (GPT-4o, o1) and provides autonomous coding assistance.
+Codex is powered by advanced models (GPT-4o, o1) and provides autonomous coding assistance both in the browser and directly in your IDE.
 
 ## For Users of Original Codex API (2021-2023)
 
@@ -42,16 +45,24 @@ response = client.chat.completions.create(
 
 ### 3. Use Codex Coding Agent
 
-**Access**: [chatgpt.com/features/codex](https://chatgpt.com/features/codex)
+**Web Access**: [chatgpt.com/features/codex](https://chatgpt.com/features/codex)
+
+**VS Code Extension**: Install `openai.chatgpt` from VS Code Marketplace (requires ChatGPT Plus/Pro/Business/Enterprise)
 
 **Codex is a coding agent that:**
 - Runs autonomously to solve coding problems
 - Can read and edit files
 - Executes code and tests
 - Iterates on solutions
-- Integrated directly in ChatGPT interface
+- Available in ChatGPT web interface AND VS Code
 
-**No project template needed** - Codex is used through the ChatGPT web interface, not as a local IDE integration.
+**IDE Integration Features**:
+- Side-by-side panel in VS Code
+- Delegate tasks to cloud with progress tracking
+- macOS: Works with ChatGPT macOS app
+- Context from opened files and selected code
+
+**Project Template**: See our [.openai-codex template](../../templates/.openai-codex.template)
 
 ### 4. Alternative AI Coding Tools
 
@@ -79,7 +90,8 @@ Other options to consider:
 
 ## For This Project
 
-Use our centralized templates for modern alternatives:
+Use our centralized templates for modern AI coding tools:
+- `.openai-codex` - OpenAI Codex VS Code extension (ChatGPT Plus/Pro/Business/Enterprise)
 - `.github-copilot` - GitHub Copilot configuration
 - `.cursorrules` - Cursor IDE configuration
 - `.continue-config` - Continue extension configuration

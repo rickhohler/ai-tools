@@ -21,7 +21,9 @@ Projects maintain **small, lightweight config files** that reference centralized
 
 **Project domain** is a category describing what type of project it is. Examples:
 - `web-app` - Web applications (React, Vue, Django, Rails, etc.)
-- `mobile-app` - Mobile apps (iOS, Android, Flutter, React Native)
+- `mobile-app-flutter` - Flutter cross-platform mobile apps (iOS + Android)
+- `mobile-app-ios` - Native iOS apps (Swift, SwiftUI, UIKit)
+- `mobile-app-android` - Native Android apps (Kotlin, Jetpack Compose)
 - `cli-tool` - Command-line tools and utilities
 - `library` - Shared libraries, packages, or SDKs
 - `api-service` - Backend API services (REST, GraphQL, gRPC)
@@ -132,6 +134,50 @@ def process_data():
 }
 ```
 
+### OpenAI Codex (VS Code)
+
+**File**: `.openai-codex` in project root
+
+**Purpose**: Configuration for OpenAI Codex VS Code extension (requires ChatGPT Plus/Pro/Business/Enterprise)
+
+**Extension**: `openai.chatgpt` from VS Code Marketplace
+
+**Format**: Markdown
+
+**Example**:
+```markdown
+# OpenAI Codex Configuration for my-app
+
+## Centralized Documentation
+Reference: ~/ai-tools/docs
+
+## Usage Guidelines
+- Use Codex panel for quick edits and code review
+- Delegate complex tasks to cloud
+- Reference centralized standards in prompts
+
+## Project-Specific Rules
+- PostgreSQL for production database
+- Follow Python type hints strictly
+```
+
+**VS Code Settings**: Add to `.vscode/settings.json`:
+```json
+{
+  "openai.contextFiles": [
+    ".openai-codex",
+    "README.md",
+    "~/ai-tools/docs/standards/python.md"
+  ]
+}
+```
+
+**Key Features**:
+- Side-by-side panel in VS Code for quick tasks
+- Delegate larger tasks to cloud with progress tracking
+- macOS: Integration with ChatGPT macOS app
+- Context from opened files and selected code
+
 ## Applying Templates
 
 ### Automated Setup
@@ -144,7 +190,7 @@ Use the setup script:
 
 **Arguments**:
 - `PROJECT_PATH` (required): Absolute path to project
-- `DOMAIN` (optional): Project domain/category (web-app, mobile-app, cli-tool, library, api-service, data-science, desktop-app, game, automation)
+- `DOMAIN` (optional): Project domain/category (web-app, mobile-app-flutter, mobile-app-ios, mobile-app-android, cli-tool, library, api-service, data-science, desktop-app, game, automation)
 - `DOCS_PATH` (optional): Override centralized docs path
 
 **Example**:
