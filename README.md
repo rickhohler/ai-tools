@@ -4,7 +4,7 @@ Centralized documentation for AI-assisted coding tools, standards, patterns, and
 
 ## Overview
 
-This system uses a **reference-based approach**: projects contain minimal configuration files (WARP.md, .cursorrules, .continue-config) that point back to this centralized documentation. This ensures consistency across projects while allowing project-specific overrides.
+This system uses a **reference-based approach**: projects contain minimal configuration files (warp.md, .cursorrules, .continue-config) that point back to this centralized documentation. This ensures consistency across projects while allowing project-specific overrides.
 
 ## Table of Contents
 
@@ -26,7 +26,7 @@ ai-tools/
 │   ├── USAGE.md         # How to integrate with projects
 │   └── MAINTENANCE.md   # System maintenance guide
 ├── templates/           # Config templates for projects
-│   ├── WARP.md.template
+│   ├── warp.md.template
 │   ├── .cursorrules.template
 │   └── .continue-config.template
 ├── journal/
@@ -44,15 +44,15 @@ ai-tools/
 1. Run the setup script with your project path:
 
 ```bash
-~/CODE/GITHUB/ai-tools/scripts/setup-project.sh /path/to/project project-domain
+~/ai-tools/scripts/setup-project.sh /path/to/project project-domain
 ```
 
 Example:
 ```bash
-~/CODE/GITHUB/ai-tools/scripts/setup-project.sh ~/projects/my-app web-app
+~/ai-tools/scripts/setup-project.sh ~/projects/my-app web-app
 ```
 
-2. Edit the generated files (WARP.md, .cursorrules, .continue-config) and replace `__ADDITIONAL_RULES__` with project-specific rules.
+2. Edit the generated files (warp.md, .cursorrules, .continue-config) and replace `__ADDITIONAL_RULES__` with project-specific rules.
 
 ### For Existing Projects
 
@@ -62,7 +62,7 @@ Add references to centralized docs in your existing config files. See [docs/USAG
 
 Templates use these placeholders:
 
-- `__CENTRAL_DOCS__` - Path to centralized docs (default: `~/CODE/GITHUB/ai-tools/docs`)
+- `__CENTRAL_DOCS__` - Path to centralized docs (default: `~/ai-tools/docs`)
 - `__PROJECT_NAME__` - Project name (derived from directory)
 - `__PROJECT_PATH__` - Absolute path to project
 - `__PROJECT_DOMAIN__` - Project domain (e.g., web-app, cli-tool, data-science)
@@ -72,16 +72,18 @@ The setup script automatically replaces placeholders except `__ADDITIONAL_RULES_
 
 ## Journaling
 
-Track daily observations and learnings about AI tool usage:
+Track your personal observations and learnings about AI tool usage:
 
 **Format**: `journal/YYYY/MM-DD.md`
 
 **Quick entry**:
 ```bash
-~/CODE/GITHUB/ai-tools/scripts/journal.sh Your observation here
+~/ai-tools/scripts/journal.sh Your observation here
 ```
 
-**Manual entry**: Edit today's file directly at `journal/2025/11-05.md`
+**Manual entry**: Edit today's file directly
+
+**Note**: Journal is for your personal thoughts only - not for automated logging.
 
 See [journal/README.md](journal/README.md) for details.
 
@@ -89,7 +91,13 @@ See [journal/README.md](journal/README.md) for details.
 
 ### Standards
 
-- [Python Coding Standards](docs/standards/python.md) - Tools, style, testing
+Language-specific coding standards:
+
+- [Python](docs/standards/python.md) - Black, Ruff, mypy, pytest
+- [Dart/Flutter](docs/standards/dart-flutter.md) - dart format, flutter analyze, cross-platform
+- [Swift/Apple](docs/standards/swift-apple.md) - SwiftLint, SwiftFormat, iOS/macOS/watchOS
+
+The system is language-agnostic - add standards for any language your projects use.
 
 ### Guides
 
@@ -102,7 +110,7 @@ See [journal/README.md](journal/README.md) for details.
 
 ## Supported Tools
 
-- **Warp Terminal** - Uses `WARP.md` in project root
+- **Warp Terminal** - Uses `warp.md` in project root
 - **Cursor** - Uses `.cursorrules` in project root
 - **Continue (VS Code)** - Uses `.continue-config` in project root
 - **GitHub Copilot** - Use in-code comments and links to centralized docs

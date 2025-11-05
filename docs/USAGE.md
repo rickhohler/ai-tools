@@ -10,20 +10,20 @@ Projects maintain **small, lightweight config files** that reference centralized
 
 ### Warp Terminal
 
-**File**: `WARP.md` in project root
+**File**: `warp.md` in project root
 
 **Purpose**: Human-readable guide for terminal workflows and AI usage patterns
 
 **Setup**:
 ```bash
-~/CODE/GITHUB/ai-tools/scripts/setup-project.sh /path/to/project domain
+~/ai-tools/scripts/setup-project.sh /path/to/project domain
 ```
 
 **Example**:
 ```markdown
 # Warp AI Project Guide for my-app
 
-> **Centralized Documentation**: `~/CODE/GITHUB/ai-tools/docs`
+> **Centralized Documentation**: `~/ai-tools/docs`
 
 This project references centralized AI tool standards...
 
@@ -47,11 +47,11 @@ This project references centralized AI tool standards...
 # Cursor Rules for my-app
 
 ## Documentation Reference
-docs_url: ~/CODE/GITHUB/ai-tools/docs
+docs_url: ~/ai-tools/docs
 
 ## Shared Standards
-- ~/CODE/GITHUB/ai-tools/docs/standards
-- ~/CODE/GITHUB/ai-tools/docs/patterns
+- ~/ai-tools/docs/standards
+- ~/ai-tools/docs/patterns
 
 ## Project-Specific Rules
 - PostgreSQL for production
@@ -75,8 +75,8 @@ docs_url: ~/CODE/GITHUB/ai-tools/docs
     "domain": "web-app"
   },
   "references": [
-    "~/CODE/GITHUB/ai-tools/docs/standards",
-    "~/CODE/GITHUB/ai-tools/docs/patterns"
+    "~/ai-tools/docs/standards",
+    "~/ai-tools/docs/patterns"
   ]
 }
 ```
@@ -87,7 +87,7 @@ docs_url: ~/CODE/GITHUB/ai-tools/docs
 
 **Example**:
 ```python
-# Reference: ~/CODE/GITHUB/ai-tools/docs/standards/python.md
+# Reference: ~/ai-tools/docs/standards/python.md
 # This module follows centralized Python standards
 
 def process_data():
@@ -102,7 +102,7 @@ def process_data():
 Use the setup script:
 
 ```bash
-~/CODE/GITHUB/ai-tools/scripts/setup-project.sh PROJECT_PATH [DOMAIN] [DOCS_PATH]
+~/ai-tools/scripts/setup-project.sh PROJECT_PATH [DOMAIN] [DOCS_PATH]
 ```
 
 **Arguments**:
@@ -112,7 +112,7 @@ Use the setup script:
 
 **Example**:
 ```bash
-~/CODE/GITHUB/ai-tools/scripts/setup-project.sh \
+~/ai-tools/scripts/setup-project.sh \
   ~/projects/my-app \
   web-app
 ```
@@ -122,7 +122,7 @@ Use the setup script:
 1. Copy templates from `templates/` directory
 2. Remove `.template` extension
 3. Replace placeholders manually:
-   - `__CENTRAL_DOCS__` → `~/CODE/GITHUB/ai-tools/docs`
+   - `__CENTRAL_DOCS__` → `~/ai-tools/docs`
    - `__PROJECT_NAME__` → Your project name
    - `__PROJECT_PATH__` → Absolute project path
    - `__PROJECT_DOMAIN__` → Project category
@@ -167,7 +167,7 @@ If overriding shared standards, document why in project README:
 ```markdown
 ## AI Tool Configuration
 
-This project uses centralized standards from `~/CODE/GITHUB/ai-tools`
+This project uses centralized standards from `~/ai-tools`
 with the following exceptions:
 
 - Uses 100-char line length (vs 88) for readability in data files
@@ -181,14 +181,14 @@ with the following exceptions:
 When working with AI tools, reference centralized docs:
 
 ```
-"Follow the Python standards at ~/CODE/GITHUB/ai-tools/docs/standards/python.md
+"Follow the Python standards at ~/ai-tools/docs/standards/python.md
 for this refactoring"
 ```
 
 ### In Code Comments
 
 ```python
-# Follows: ~/CODE/GITHUB/ai-tools/docs/patterns/error-handling.md
+# Follows: ~/ai-tools/docs/patterns/error-handling.md
 try:
     result = process_data()
 except DataError as e:
@@ -201,8 +201,8 @@ except DataError as e:
 ## Development Guidelines
 
 This project follows centralized standards:
-- [Python Standards](~/CODE/GITHUB/ai-tools/docs/standards/python.md)
-- [Testing Patterns](~/CODE/GITHUB/ai-tools/docs/patterns/testing.md)
+- [Python Standards](~/ai-tools/docs/standards/python.md)
+- [Testing Patterns](~/ai-tools/docs/patterns/testing.md)
 ```
 
 ## Maintenance
@@ -220,16 +220,16 @@ When centralized standards change:
 
 ```bash
 # Setup new project
-~/CODE/GITHUB/ai-tools/scripts/setup-project.sh ~/new-project project-type
+~/ai-tools/scripts/setup-project.sh ~/new-project project-type
 
 # Customize rules
-edit ~/new-project/WARP.md
+edit ~/new-project/warp.md
 edit ~/new-project/.cursorrules
 edit ~/new-project/.continue-config
 
 # Commit
 cd ~/new-project
-git add WARP.md .cursorrules .continue-config
+git add warp.md .cursorrules .continue-config
 git commit -m "Add AI tool configurations"
 ```
 

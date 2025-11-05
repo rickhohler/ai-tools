@@ -9,7 +9,7 @@ fi
 PROJECT_PATH="$1"
 PROJECT_NAME="$(basename "$PROJECT_PATH")"
 PROJECT_DOMAIN="${2-}"
-CENTRAL_DOCS_DEFAULT="$HOME/CODE/GITHUB/ai-tools/docs"
+CENTRAL_DOCS_DEFAULT="$HOME/ai-tools/docs"
 CENTRAL_DOCS="${3-$CENTRAL_DOCS_DEFAULT}"
 
 TEMPLATES_DIR="$(cd "$(dirname "$0")/.." && pwd)/templates"
@@ -29,12 +29,12 @@ copy_and_customize() {
 
 mkdir -p "$PROJECT_PATH"
 
-copy_and_customize "$TEMPLATES_DIR/WARP.md.template" "$PROJECT_PATH/WARP.md"
+copy_and_customize "$TEMPLATES_DIR/warp.md.template" "$PROJECT_PATH/warp.md"
 copy_and_customize "$TEMPLATES_DIR/.cursorrules.template" "$PROJECT_PATH/.cursorrules"
 copy_and_customize "$TEMPLATES_DIR/.continue-config.template" "$PROJECT_PATH/.continue-config"
 
 echo "✓ Installed AI tools templates into $PROJECT_PATH"
 echo ""
 echo "Next steps:"
-echo "1) Edit WARP.md, .cursorrules, and .continue-config to replace __ADDITIONAL_RULES__ with project-specific rules."
+echo "1) Edit warp.md, .cursorrules, and .continue-config to replace __ADDITIONAL_RULES__ with project-specific rules."
 echo "2) Confirm __PROJECT_DOMAIN__ is set appropriately. If blank, rerun with a domain value."

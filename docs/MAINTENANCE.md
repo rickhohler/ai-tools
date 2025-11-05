@@ -28,13 +28,12 @@ Guidelines for maintaining and evolving the centralized AI tools system.
 edit docs/standards/testing.md
 
 # 2. Update templates if needed
-edit templates/WARP.md.template
+edit templates/warp.md.template
 
 # 3. Test with one project
-~/CODE/GITHUB/ai-tools/scripts/setup-project.sh ~/test-project test
+~/ai-tools/scripts/setup-project.sh ~/test-project test
 
-# 4. Journal observations
-~/CODE/GITHUB/ai-tools/scripts/journal.sh New testing standard works well
+# 4. (Optional) Add personal journal entry if relevant
 
 # 5. Commit
 git add docs/standards/testing.md
@@ -125,7 +124,7 @@ Only add placeholders when:
 
 ```bash
 # 1. Edit template
-edit templates/WARP.md.template
+edit templates/warp.md.template
 # Add: __PYTHON_VERSION__
 
 # 2. Update script
@@ -269,7 +268,7 @@ Review:
 ```bash
 # Script to update all projects (example)
 for proj in ~/projects/*/; do
-  if [ -f "$proj/WARP.md" ]; then
+  if [ -f "$proj/warp.md" ]; then
     echo "Checking $proj"
     # Update specific rule/reference
   fi
@@ -280,8 +279,8 @@ done
 
 ```bash
 for proj in ~/projects/*/; do
-  if [ ! -f "$proj/WARP.md" ]; then
-    echo "Missing WARP.md: $proj"
+  if [ ! -f "$proj/warp.md" ]; then
+    echo "Missing warp.md: $proj"
   fi
 done
 ```
@@ -289,10 +288,10 @@ done
 ### Sync Template Changes to Existing Projects
 
 ```bash
-# Example: Add new section to all WARP.md files
+# Example: Add new section to all warp.md files
 for proj in ~/projects/*/; do
-  if [ -f "$proj/WARP.md" ]; then
-    echo "\n## Testing\nSee docs/standards/testing.md" >> "$proj/WARP.md"
+  if [ -f "$proj/warp.md" ]; then
+    echo "\n## Testing\nSee docs/standards/testing.md" >> "$proj/warp.md"
   fi
 done
 ```

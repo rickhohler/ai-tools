@@ -2,7 +2,9 @@
 
 ## Purpose
 
-Capture daily, timestamped observations and personal learnings about AI tool usage across projects.
+Capture your own daily, timestamped observations and personal learnings about AI tool usage across projects.
+
+**Note**: This journal is for your personal thoughts and observations only. Automated/scripted entries should not be added.
 
 ## Structure
 
@@ -19,7 +21,6 @@ Use ISO-like timestamps and keep notes concise:
 
 [2025-11-05 10:14] Tested Continue config referencing centralized docs.
 [2025-11-05 15:32] Updated Cursor rules to include database connection pooling.
-[2025-11-05 18:00] DeepSeek R1 model performs well on Python refactoring tasks.
 ```
 
 ## Tips
@@ -35,7 +36,7 @@ Use ISO-like timestamps and keep notes concise:
 Use the journal helper for quick entries:
 
 ```bash
-~/CODE/GITHUB/ai-tools/scripts/journal.sh Your observation here
+~/ai-tools/scripts/journal.sh Your observation here
 ```
 
 This automatically creates the daily file (if needed) and appends a timestamped entry.

@@ -20,6 +20,6 @@ __ADDITIONAL_RULES__
 ## Journaling
 
 Daily personal observations and learnings are tracked in:
-- **Location**: `~/CODE/GITHUB/ai-tools/journal/YYYY/MM-DD.md`
+- **Location**: `~/ai-tools/journal/YYYY/MM-DD.md`
 - **Format**: Timestamped entries with tool-specific notes
-- **Helper**: Use `~/CODE/GITHUB/ai-tools/scripts/journal.sh` for quick entries
+- **Helper**: Use `~/ai-tools/scripts/journal.sh` for quick entries
