@@ -113,6 +113,7 @@ The system is language-agnostic - add standards for any language your projects u
 
 - [Ollama Local Setup](docs/guides/ollama-guide.md) - Local LLM setup with Continue
 - [OpenAI Codex](docs/guides/openai-codex.md) - Codex evolution: original API (deprecated 2023) and new suite (2024-2025)
+- [Python Library Packaging](docs/guides/python-library-packaging.md) - PyPI publishing with GitHub Actions automation
 
 ### Usage
 
