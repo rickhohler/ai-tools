@@ -19,6 +19,17 @@ Projects maintain **small, lightweight config files** that reference centralized
 ~/ai-tools/scripts/setup-project.sh /path/to/project domain
 ```
 
+**Project domain** is a category describing what type of project it is. Examples:
+- `web-app` - Web applications (React, Vue, Django, Rails, etc.)
+- `mobile-app` - Mobile apps (iOS, Android, Flutter, React Native)
+- `cli-tool` - Command-line tools and utilities
+- `library` - Shared libraries, packages, or SDKs
+- `api-service` - Backend API services (REST, GraphQL, gRPC)
+- `data-science` - Data analysis, ML/AI, Jupyter notebooks
+- `desktop-app` - Desktop applications (Electron, Qt, SwiftUI)
+- `game` - Game development projects
+- `automation` - Scripts and automation tools
+
 **Example**:
 ```markdown
 # Warp AI Project Guide for my-app
@@ -107,7 +118,7 @@ Use the setup script:
 
 **Arguments**:
 - `PROJECT_PATH` (required): Absolute path to project
-- `DOMAIN` (optional): Project domain/category
+- `DOMAIN` (optional): Project domain/category (web-app, mobile-app, cli-tool, library, api-service, data-science, desktop-app, game, automation)
 - `DOCS_PATH` (optional): Override centralized docs path
 
 **Example**:

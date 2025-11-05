@@ -52,6 +52,15 @@ Example:
 ~/ai-tools/scripts/setup-project.sh ~/projects/my-app web-app
 ```
 
+Common project domains:
+- `web-app` - Web applications
+- `mobile-app` - Mobile applications (iOS/Android/Flutter)
+- `cli-tool` - Command-line tools
+- `library` - Shared libraries or packages
+- `api-service` - Backend API services
+- `data-science` - Data analysis/ML projects
+- `desktop-app` - Desktop applications
+
 2. Edit the generated files (warp.md, .cursorrules, .continue-config) and replace `__ADDITIONAL_RULES__` with project-specific rules.
 
 ### For Existing Projects
@@ -65,7 +74,7 @@ Templates use these placeholders:
 - `__CENTRAL_DOCS__` - Path to centralized docs (default: `~/ai-tools/docs`)
 - `__PROJECT_NAME__` - Project name (derived from directory)
 - `__PROJECT_PATH__` - Absolute path to project
-- `__PROJECT_DOMAIN__` - Project domain (e.g., web-app, cli-tool, data-science)
+- `__PROJECT_DOMAIN__` - Project category/type (e.g., web-app, mobile-app, cli-tool, library, api-service, data-science, desktop-app)
 - `__ADDITIONAL_RULES__` - Project-specific rules (you fill this in)
 
 The setup script automatically replaces placeholders except `__ADDITIONAL_RULES__`, which you customize manually.

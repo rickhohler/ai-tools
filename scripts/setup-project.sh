@@ -3,6 +3,12 @@ set -euo pipefail
 
 if [ "${1-}" = "" ]; then
   echo "Usage: scripts/setup-project.sh /absolute/path/to/project [project_domain] [central_docs_override]"
+  echo ""
+  echo "Examples:"
+  echo "  scripts/setup-project.sh ~/projects/my-app web-app"
+  echo "  scripts/setup-project.sh ~/projects/my-tool cli-tool"
+  echo ""
+  echo "Common domains: web-app, mobile-app, cli-tool, library, api-service, data-science, desktop-app"
   exit 1
 fi
 
