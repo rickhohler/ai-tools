@@ -31,7 +31,7 @@ ai-tools/
 │   ├── .continue-config.template
 │   └── .github-copilot.template
 ├── journal/
-│   └── YYYY/            # Daily files: MM-DD.md
+│   └── YYYY/            # Daily files: YYYY-MM-DD.md
 ├── scripts/
 │   ├── setup-project.sh # Initialize project with templates
 │   └── journal.sh       # Quick journal entries helper
@@ -84,7 +84,7 @@ The setup script automatically replaces placeholders except `__ADDITIONAL_RULES_
 
 Track your personal observations and learnings about AI tool usage:
 
-**Format**: `journal/YYYY/MM-DD.md`
+**Format**: `journal/YYYY/YYYY-MM-DD.md`
 
 **Quick entry**:
 ```bash

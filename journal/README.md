@@ -8,7 +8,7 @@ Capture your own daily, timestamped observations and personal learnings about AI
 
 ## Structure
 
-- **Format**: `journal/YYYY/MM-DD.md`
+- **Format**: `journal/YYYY/YYYY-MM-DD.md`
 - **Organization**: One file per day, stored under the year directory
 - **Current Year**: `journal/2025/`
 
