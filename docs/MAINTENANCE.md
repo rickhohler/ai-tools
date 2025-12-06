@@ -7,9 +7,9 @@ Guidelines for maintaining and evolving the centralized AI tools system.
 ### Process
 
 1. **Identify the need**: Note patterns used across multiple projects
-2. **Draft the standard**: Create or update file in `docs/standards/`
+2. **Draft the standard**: Create or update file in `docs/technical/languages/`
 3. **Test with one project**: Apply to a single project first
-4. **Gather feedback**: Use journal to track effectiveness
+4. **Gather feedback**: Use feedback to track effectiveness
 5. **Roll out**: Update other projects as needed
 6. **Document**: Note changes in centralized docs
 
@@ -25,7 +25,7 @@ Guidelines for maintaining and evolving the centralized AI tools system.
 
 ```bash
 # 1. Create new standard
-edit docs/standards/testing.md
+edit docs/technical/languages/testing.md
 
 # 2. Update templates if needed
 edit templates/warp.md.template
@@ -33,10 +33,8 @@ edit templates/warp.md.template
 # 3. Test with one project
 ~/ai-tools/scripts/setup-project.sh ~/test-project test
 
-# 4. (Optional) Add personal journal entry if relevant
-
 # 5. Commit
-git add docs/standards/testing.md
+git add docs/technical/languages/testing.md
 git commit -m "Add testing standards documentation"
 ```
 
@@ -176,40 +174,6 @@ Use date-based versions in docs: `v2025-11` for November 2025
 - Old `__PROJECT_DOMAIN__` placeholder (remove by 2026-01)
 ```
 
-## Journal Housekeeping
-
-### Annual Maintenance
-
-**Each January:**
-
-1. Create new year directory:
-   ```bash
-   mkdir -p journal/2026
-   ```
-
-2. Review previous year's entries for patterns
-
-3. Extract reusable insights to standards/patterns:
-   ```bash
-   # Example: Found good pattern in journal
-   grep "DeepSeek" journal/2025/*.md > /tmp/deepseek-notes.txt
-   # Extract pattern to docs/patterns/deepseek-usage.md
-   ```
-
-### Quarterly Review
-
-Every 3 months:
-- Review journal for common themes
-- Identify improvements to standards
-- Note tool performance trends
-- Update guides based on learnings
-
-### Archive Strategy
-
-- **Keep all entries**: Journal serves as historical reference
-- **No deletion**: Disk space is cheap, context is valuable
-- **Searchable**: Use grep/ripgrep for finding past observations
-
 ## Review Workflow
 
 ### For Standards/Patterns Updates
@@ -227,7 +191,7 @@ Add error handling pattern
 Based on successful use across multiple projects.
 Includes retry logic and logging standards.
 
-See journal/2025/11-03.md for context.
+Basic standards update.
 ```
 
 ### Pull Request Process
@@ -247,7 +211,7 @@ If working in a team:
 
 ### Track These Metrics
 
-Use journal to note:
+Use issue tracking to note:
 - **Time saved**: "Refactoring pattern saved 2 hours"
 - **Consistency**: "All projects now use same testing approach"
 - **Issues**: "Pattern X doesn't work well for Y domain"
@@ -259,7 +223,6 @@ Review:
 - Are projects using centralized docs?
 - Are project-specific rules well-documented?
 - Do templates need updates?
-- Are journal insights being captured in patterns?
 
 ## Common Maintenance Tasks
 
@@ -291,7 +254,7 @@ done
 # Example: Add new section to all warp.md files
 for proj in ~/projects/*/; do
   if [ -f "$proj/warp.md" ]; then
-    echo "\n## Testing\nSee docs/standards/testing.md" >> "$proj/warp.md"
+    echo "\n## Testing\nSee docs/technical/languages/testing.md" >> "$proj/warp.md"
   fi
 done
 ```
@@ -300,7 +263,7 @@ done
 
 - **Small, frequent updates** better than large overhauls
 - **Test changes** with one project before rolling out
-- **Document reasoning** in commits and journal
+- **Document reasoning** in commits
 - **Keep it simple**: Resist over-engineering
-- **Listen to pain points**: Journal reveals what needs fixing
+- **Listen to pain points**: Feedback reveals what needs fixing
 - **Version control everything**: Easy rollback if needed

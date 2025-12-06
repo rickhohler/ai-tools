@@ -37,7 +37,7 @@ client = OpenAI(api_key="your-api-key")
 response = client.chat.completions.create(
     model="gpt-4o",  # or "gpt-4", "gpt-3.5-turbo"
     messages=[
-        {"role": "system", "content": "You are a helpful coding assistant. Follow standards at ~/ai-tools/docs/standards/"},
+        {"role": "system", "content": "You are a helpful coding assistant. Follow standards at ~/ai-tools/docs/technical/languages/"},
         {"role": "user", "content": "Write a Python function to..."}
     ]
 )

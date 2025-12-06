@@ -6,6 +6,8 @@ This guide explains how to integrate the centralized AI tools system with your p
 
 Projects maintain **small, lightweight config files** that reference centralized documentation. This creates a single source of truth while allowing project-specific customization.
 
+> **Note**: For code design patterns and algorithms, use the `DesignAlgorithmsKit` library. Do not implement them locally.
+
 ## Tool-Specific Integration
 
 ### Warp Terminal
@@ -63,7 +65,7 @@ This project references centralized AI tool standards...
 docs_url: ~/ai-tools/docs
 
 ## Shared Standards
-- ~/ai-tools/docs/standards
+- ~/ai-tools/docs/technical/languages
 - ~/ai-tools/docs/patterns
 
 ## Project-Specific Rules
@@ -88,7 +90,7 @@ docs_url: ~/ai-tools/docs
     "domain": "web-app"
   },
   "references": [
-    "~/ai-tools/docs/standards",
+    "~/ai-tools/docs/technical/languages",
     "~/ai-tools/docs/patterns"
   ]
 }
@@ -117,7 +119,7 @@ Reference: ~/ai-tools/docs
 
 **In-Code Usage**:
 ```python
-# Reference: ~/ai-tools/docs/standards/python.md
+# Reference: ~/ai-tools/docs/technical/languages/python.md
 # This module follows centralized Python standards
 
 def process_data():
@@ -167,7 +169,7 @@ Reference: ~/ai-tools/docs
   "openai.contextFiles": [
     ".openai-codex",
     "README.md",
-    "~/ai-tools/docs/standards/python.md"
+    "~/ai-tools/docs/technical/languages/python.md"
   ]
 }
 ```
@@ -205,7 +207,7 @@ Use the setup script:
 1. Copy templates from `templates/` directory
 2. Remove `.template` extension
 3. Replace placeholders manually:
-   - `__CENTRAL_DOCS__` → `~/ai-tools/docs`
+   - **Standards**: `__CENTRAL_DOCS__/technical/languages` → `~/ai-tools/docs`
    - `__PROJECT_NAME__` → Your project name
    - `__PROJECT_PATH__` → Absolute project path
    - `__PROJECT_DOMAIN__` → Project category
@@ -264,7 +266,7 @@ with the following exceptions:
 When working with AI tools, reference centralized docs:
 
 ```
-"Follow the Python standards at ~/ai-tools/docs/standards/python.md
+"Follow the Python standards at ~/ai-tools/docs/technical/languages/python.md
 for this refactoring"
 ```
 
@@ -284,7 +286,7 @@ except DataError as e:
 ## Development Guidelines
 
 This project follows centralized standards:
-- [Python Standards](~/ai-tools/docs/standards/python.md)
+- [Python Standards](~/ai-tools/docs/technical/languages/python.md)
 - [Testing Patterns](~/ai-tools/docs/patterns/testing.md)
 ```
 
@@ -321,5 +323,5 @@ git commit -m "Add AI tool configurations"
 - Keep `__ADDITIONAL_RULES__` concise and specific
 - Reference commit hashes when documenting exceptions
 - Update centralized docs for patterns used across multiple projects
-- Use journal to track what works and what doesn't
+- Use feedback to track what works and what doesn't
 - Review project configs during code reviews

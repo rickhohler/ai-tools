@@ -22,6 +22,14 @@ my-library/
 └── RELEASE.md
 ```
 
+## CLI Tools
+**GitHub CLI (`gh`) Usage**:
+When using the `gh` command to create or manage repositories, always ensure you are using the username that matches the `ai-tools` repository owner (e.g., `rickhohler`).
+```bash
+# Example
+gh repo create rickhohler/my-library --private
+```
+
 ## pyproject.toml Configuration
 
 Based on modern Python packaging standards (PEP 621):

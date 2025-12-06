@@ -67,6 +67,9 @@ rm -rf ~/Library/Developer/Xcode/DerivedData
 ## Code Style
 
 - Follow [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
+- Follow [Apple Official Style Guide](https://google.github.io/swift/) (or Apple's internal resources if available)
+- Reference [Swift Package Manager API](https://developer.apple.com/documentation/swift_packages) for package configuration
+- See [Swift Package Guide](swift-package-guide.md) for repository standards and workflows
 - Use meaningful names: `fetchUserData()` not `getData()`
 - Prefer `let` over `var`
 - Use strong typing, avoid `Any` when possible

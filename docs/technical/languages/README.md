@@ -71,11 +71,11 @@ Consider adding standards for:
 
 ### Process
 
-1. Create `docs/standards/language-name.md`
+1. Create `docs/technical/languages/language-name.md`
 2. Follow the template structure above
 3. Include setup instructions, tools, and best practices
 4. Reference official style guides where available
-5. Update `docs/standards/README.md` (this file)
+5. Update `docs/technical/languages/README.md` (this file)
 6. Update main `README.md` to list the new standard
 7. Commit with message: `Add [Language] coding standards`
 
@@ -95,7 +95,7 @@ Example for a Flutter project:
 ## Project-Specific Rules
 
 - Language: Dart 3.2+ with Flutter 3.16+
-- Follow: ~/ai-tools/docs/standards/dart-flutter.md
+- Follow: ~/ai-tools/docs/technical/languages/dart-flutter.md
 - State Management: Riverpod (not Provider)
 - Target platforms: iOS and Android only (no web/desktop)
 - Min iOS: 15.0, Min Android: API 24

@@ -1,0 +1,80 @@
+name: Unit Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run Unit Tests
+    runs-on: macos-latest
+    
+    strategy:
+      matrix:
+        swift-version: ['6.0']
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Select Xcode version
+        run: sudo xcode-select -s /Applications/Xcode.app
+      
+      - name: Show Swift version
+        run: swift --version
+      
+      - name: Resolve dependencies
+        run: swift package resolve
+      
+      - name: Build package
+        run: swift build
+      
+      - name: Run tests with coverage
+        run: |
+          swift test --enable-code-coverage
+          # List build artifacts for debugging
+          echo "Build artifacts:"
+          find .build -name "*.xctest" -type d 2>/dev/null || true
+      
+      - name: Find coverage data
+        id: coverage
+        run: |
+          # Find profdata file
+          PROF_DATA=$(find .build -name "default.profdata" -type f | head -1)
+          
+          # Find test binary - generic search
+          BINARY=$(find .build -name "*PackageTests.xctest" -type d | head -1)
+          
+          if [ -z "$BINARY" ]; then
+             # Try broader search
+             BINARY=$(find .build -name "*.xctest" -type d | head -1)
+          fi
+          
+          if [ -n "$BINARY" ]; then
+             TEST_NAME=$(basename "$BINARY" .xctest)
+             BINARY_PATH="$BINARY/Contents/MacOS/$TEST_NAME"
+          fi
+          
+          echo "profdata=$PROF_DATA" >> $GITHUB_OUTPUT
+          echo "binary=$BINARY_PATH" >> $GITHUB_OUTPUT
+      
+      - name: Generate code coverage report
+        if: steps.coverage.outputs.profdata != '' && steps.coverage.outputs.binary != ''
+        run: |
+          xcrun llvm-cov export -format="lcov" \
+            -instr-profile="${{ steps.coverage.outputs.profdata }}" \
+            "${{ steps.coverage.outputs.binary }}" \
+            -ignore-filename-regex=".build|Tests" > coverage.lcov
+      
+      - name: Upload coverage to Codecov
+        if: steps.coverage.outputs.profdata != '' && steps.coverage.outputs.binary != ''
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./coverage.lcov
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}

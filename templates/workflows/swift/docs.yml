@@ -1,0 +1,80 @@
+name: Publish Documentation
+
+on:
+  push:
+    branches: [ main ]
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: macos-latest
+    
+    steps:
+      - name: Checkout Package
+        uses: actions/checkout@v4
+        with:
+          path: package
+
+      - name: Select Xcode version
+        run: sudo xcode-select -s /Applications/Xcode.app
+      
+      - name: Get Package Name
+        id: package_name
+        working-directory: package
+        run: |
+          # Extract package name from Package.swift or directory name
+          PACKAGE_NAME=$(swift package dump-package | jq -r '.name')
+          echo "name=$PACKAGE_NAME" >> $GITHUB_OUTPUT
+          echo "Package Name: $PACKAGE_NAME"
+
+      - name: Build DocC Documentation
+        working-directory: package
+        run: |
+          swift package resolve
+          
+          # Generate documentation for static hosting
+          # Transform for GitHub Pages hosting at /docs/<PackageName>
+          swift package --allow-writing-to-directory ./docs \
+            generate-documentation --target ${{ steps.package_name.outputs.name }} \
+            --disable-indexing \
+            --transform-for-static-hosting \
+            --hosting-base-path docs/${{ steps.package_name.outputs.name }} \
+            --output-path ./docs
+            
+      - name: Checkout Documentation Config Repo
+        uses: actions/checkout@v4
+        with:
+          repository: rickhohler/rickhohler.github.io
+          token: ${{ secrets.GH_PAT }}
+          path: docs-repo
+
+      - name: Deploy to Documentation Repo
+        working-directory: docs-repo
+        run: |
+          PACKAGE_NAME="${{ steps.package_name.outputs.name }}"
+          TARGET_DIR="docs/$PACKAGE_NAME"
+          
+          # Configure Git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Prepare target directory
+          mkdir -p docs
+          rm -rf "$TARGET_DIR"
+          mkdir -p "$TARGET_DIR"
+          
+          # Copy documentation
+          cp -R ../package/docs/* "$TARGET_DIR/"
+          
+          # Commit and Push
+          git add "$TARGET_DIR"
+          
+          # Check for changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: Update documentation for $PACKAGE_NAME"
+            git push
+          fi

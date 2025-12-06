@@ -11,7 +11,6 @@ This system uses a **reference-based approach**: projects contain minimal config
 - [Directory Structure](#directory-structure)
 - [Quick Start](#quick-start)
 - [Using Templates](#using-templates)
-- [Journaling](#journaling)
 - [Documentation](#documentation)
 - [Maintenance](#maintenance)
 
@@ -20,8 +19,13 @@ This system uses a **reference-based approach**: projects contain minimal config
 ```
 ai-tools/
 ├── docs/
-│   ├── standards/       # Coding standards (Python, etc.)
-│   ├── patterns/        # Prompt patterns and AI workflows
+│   ├── technical/       # Objective technical standards
+│   │   ├── languages/   # Language specifics (Python, etc.)
+│   │   ├── idioms/      # General technical patterns (API Design, Reusability)
+│   │   ├── process/     # Process standards (Commit Workflow, Testing)
+│   │   └── standards/   # Core standards (Security, CoC)
+│   ├── preferences/     # Subjective style & choices
+│   ├── patterns/        # Prompt patterns and AI workflows (Code patterns go to DesignAlgorithmsKit)
 │   ├── guides/          # Tool-specific guides (Ollama, etc.)
 │   ├── USAGE.md         # How to integrate with projects
 │   └── MAINTENANCE.md   # System maintenance guide
@@ -31,11 +35,9 @@ ai-tools/
 │   ├── .continue-config.template
 │   ├── .github-copilot.template
 │   └── .openai-codex.template
-├── journal/
-│   └── YYYY/            # Daily files: YYYY-MM-DD.md
 ├── scripts/
 │   ├── setup-project.sh # Initialize project with templates
-│   └── journal.sh       # Quick journal entries helper
+│   └── setup-project.sh # Initialize project with templates
 └── README.md            # This file
 ```
 
@@ -83,37 +85,42 @@ Templates use these placeholders:
 
 The setup script automatically replaces placeholders except `__ADDITIONAL_RULES__`, which you customize manually.
 
-## Journaling
-
-Track your personal observations and learnings about AI tool usage:
-
-**Format**: `journal/YYYY/YYYY-MM-DD.md`
-
-**Quick entry**:
-```bash
-~/ai-tools/scripts/journal.sh Your observation here
-```
-
-**Manual entry**: Edit today's file directly
-
-**Note**: Journal is for your personal thoughts only - not for automated logging.
-
-See [journal/README.md](journal/README.md) for details.
-
 ## Documentation
 
 ### Standards
 
 Language-specific coding standards:
 
-- [Python](docs/standards/python.md) - Black, Ruff, mypy, pytest
-- [Dart/Flutter](docs/standards/dart-flutter.md) - dart format, flutter analyze, cross-platform
-- [Swift/Apple](docs/standards/swift-apple.md) - SwiftLint, SwiftFormat, iOS/macOS/watchOS
+- [Python](docs/technical/languages/python.md) - Black, Ruff, mypy, pytest
+- [Dart/Flutter](docs/technical/languages/dart-flutter.md) - dart format, flutter analyze, cross-platform
+- [Swift/Apple](docs/technical/languages/swift-apple.md) - SwiftLint, SwiftFormat, iOS/macOS/watchOS
 
 The system is language-agnostic - add standards for any language your projects use.
 
+### Technical Standards
+
+- **Process**
+    - **[Commit Workflow](docs/technical/process/commit-workflow.md)**: Conventional commits and branch strategies.
+    - **[Issue Tracking](docs/technical/process/issue-tracking.md)**: Standard labels and milestones.
+    - **[Semantic Versioning](docs/technical/process/versioning.md)**: Rules for versioning and tagging.
+    - **[Testing Standards](docs/technical/process/testing-standards.md)**: Testing/Mocking strategies and coverage goals.
+    - [CI/CD Standards](docs/technical/ci-cd.md) - Workflows & Secrets
+
+- **Idioms & Design**
+    - [API Design](docs/technical/idioms/api-design.md) - Facades & Protocols
+    - [Reusability](docs/technical/idioms/reusability.md) - Composition & Design Checklist
+    - [FeatureFlagKit Policy](docs/technical/idioms/feature-flag-kit.md) - Feature toggle standards
+    - [FileSystemKit Policy](docs/technical/idioms/file-system-kit.md) - File system operation standards
+    - [DesignAlgorithmsKit](docs/technical/idioms/design-algorithms-kit.md) - Design patterns policy
+    
+- **Core Standards**
+    - [Security Policy](docs/technical/standards/security.md)
+    - [Code of Conduct](docs/technical/standards/code-of-conduct.md)
+    - [Swift Package Guide](docs/technical/languages/swift-package-guide.md)
+
 ### Guides
 
+- [Swift Package Guide](docs/technical/languages/swift-package-guide.md) - Repository standards and CI/CD
 - [Ollama Local Setup](docs/guides/ollama-guide.md) - Local LLM setup with Continue
 - [OpenAI Codex](docs/guides/openai-codex.md) - Codex evolution: original API (deprecated 2023) and new suite (2024-2025)
 - [Python Library Packaging](docs/guides/python-library-packaging.md) - PyPI publishing with GitHub Actions automation
@@ -137,4 +144,3 @@ See [docs/MAINTENANCE.md](docs/MAINTENANCE.md) for:
 - Adding/updating standards and patterns
 - Template evolution
 - Version management
-- Journal housekeeping

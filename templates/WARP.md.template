@@ -3,7 +3,7 @@
 > **Centralized Documentation**: `__CENTRAL_DOCS__`
 
 This project references centralized AI tool standards, patterns, and guides:
-- **Standards**: `__CENTRAL_DOCS__/standards`
+- **Standards**: `__CENTRAL_DOCS__/technical/languages`
 - **Patterns**: `__CENTRAL_DOCS__/patterns`
 - **Guides**: `__CENTRAL_DOCS__/guides`
 
@@ -16,10 +16,3 @@ This project references centralized AI tool standards, patterns, and guides:
 ## Project-Specific Rules and Notes
 
 __ADDITIONAL_RULES__
-
-## Journaling
-
-Daily personal observations and learnings are tracked in:
-- **Location**: `~/ai-tools/journal/YYYY/YYYY-MM-DD.md`
-- **Format**: Timestamped entries with tool-specific notes
-- **Helper**: Use `~/ai-tools/scripts/journal.sh` for quick entries
