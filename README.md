@@ -1,140 +1,55 @@
-# AI Tools
+# AI-Assisted Engineering Protocols
 
-Centralized documentation for AI-assisted coding tools, standards, patterns, and personal observations. This repository serves as the single source of truth for all AI tool configurations across projects.
+**Status**: Public Reference  
+**Maintainer**: Rick Hohler
 
-## Overview
+This repository establishes the **engineering standards, configuration patterns, and operational protocols** for AI-assisted software development within my ecosystem. It serves as the authoritative source for optimizing LLM interactions, enforcing code quality, and standardizing toolchain integration across diverse technological domains.
 
-This system uses a **reference-based approach**: projects contain minimal configuration files (warp.md, .cursorrules, .continue-config) that point back to this centralized documentation. This ensures consistency across projects while allowing project-specific overrides.
+## Architecture
 
-## Table of Contents
+The system utilizes a **hub-and-spoke configuration architecture**:
+*   **Central Hub (`ai-tools`)**: Hosts immutable standards, rigorous prompt patterns, and tool-agnostic guidelines.
+*   **Project Spokes**: Inherit configurations via lightweight pointers (e.g., `warp.md`, `.cursorrules`) that reference this central truth.
 
-- [Directory Structure](#directory-structure)
-- [Quick Start](#quick-start)
-- [Using Templates](#using-templates)
-- [Journaling](#journaling)
-- [Documentation](#documentation)
-- [Maintenance](#maintenance)
+This design ensures all projects—from iOS native applications to distributed backend services—adhere to a unified quality baseline while allowing for domain-specific specialization.
 
-## Directory Structure
+## Capabilities
 
-```
-ai-tools/
-├── docs/
-│   ├── standards/       # Coding standards (Python, etc.)
-│   ├── patterns/        # Prompt patterns and AI workflows
-│   ├── guides/          # Tool-specific guides (Ollama, etc.)
-│   ├── USAGE.md         # How to integrate with projects
-│   └── MAINTENANCE.md   # System maintenance guide
-├── templates/           # Config templates for projects
-│   ├── warp.md.template
-│   ├── .cursorrules.template
-│   ├── .continue-config.template
-│   ├── .github-copilot.template
-│   └── .openai-codex.template
-├── journal/
-│   └── YYYY/            # Daily files: YYYY-MM-DD.md
-├── scripts/
-│   ├── setup-project.sh # Initialize project with templates
-│   └── journal.sh       # Quick journal entries helper
-└── README.md            # This file
-```
+### 1. Standardization & Compliance
+Defines and enforces coding standards across languages, ensuring AI-generated code meets strict quality gates before human review.
+- **Swift/Apple**: [Standards & Safety](docs/standards/swift-apple.md)
+- **Python**: [Type Systems & Modern Patterns](docs/standards/python.md)
+- **Flutter/Dart**: [Cross-Platform Architecture](docs/standards/dart-flutter.md)
 
-## Quick Start
+### 2. Toolchain Integration
+Seamlessly integrates with professional development environments:
+*   **Cursor**: Custom rule sets for context-aware coding.
+*   **Warp**: AI-enhanced terminal workflows.
+*   **Continue**: Local LLM orchestration (Ollama) and VS Code integration.
+*   **GitHub Copilot**: Context-anchoring strategies.
 
-### For New Projects
+### 3. Knowledge Graph
+*   [**Patterns**](docs/patterns/): Optimized prompt engineering strategies for complex refactoring, architecture design, and testing.
+*   [**Guides**](docs/guides/): Deep-dives into local inference optimization (Ollama), PyPI publishing automation, and legacy tool migrations.
 
-1. Run the setup script with your project path:
+## Usage
+
+### Quick Start (New Project)
+Initialize a project with the standardized AI harness:
 
 ```bash
-~/ai-tools/scripts/setup-project.sh /path/to/project project-domain
+~/ai-tools/scripts/setup-project.sh /path/to/project [domain-type]
 ```
 
-Example:
-```bash
-~/ai-tools/scripts/setup-project.sh ~/projects/my-app web-app
-```
+**Domains**: `mobile-app-ios`, `mobile-app-flutter`, `web-app`, `api-service`, `library`.
 
-Common project domains:
-- `web-app` - Web applications
-- `mobile-app-flutter` - Flutter cross-platform mobile apps
-- `mobile-app-ios` - Native iOS apps (Swift/SwiftUI)
-- `mobile-app-android` - Native Android apps (Kotlin/Jetpack Compose)
-- `cli-tool` - Command-line tools
-- `library` - Shared libraries or packages
-- `api-service` - Backend API services
-- `data-science` - Data analysis/ML projects
-- `desktop-app` - Desktop applications
+### Template System
+The template engine enforces consistent context interaction rules:
+- `__PROJECT_DOMAIN__`: Injects domain-specific architectural constraints (e.g., "Always use MVVM-C for iOS").
+- `__STRICT_MODE__`: Enforces type safety and test coverage requirements on all AI outputs.
 
-2. Edit the generated files (warp.md, .cursorrules, .continue-config) and replace `__ADDITIONAL_RULES__` with project-specific rules.
+## Development Journal mechanism
+(Internal Use) Time-series tracking of tool efficacy, model hallucinations, and workflow optimizations. Located in `journal/`.
 
-### For Existing Projects
-
-Add references to centralized docs in your existing config files. See [docs/USAGE.md](docs/USAGE.md) for details.
-
-## Using Templates
-
-Templates use these placeholders:
-
-- `__CENTRAL_DOCS__` - Path to centralized docs (default: `~/ai-tools/docs`)
-- `__PROJECT_NAME__` - Project name (derived from directory)
-- `__PROJECT_PATH__` - Absolute path to project
-- `__PROJECT_DOMAIN__` - Project category/type (e.g., web-app, mobile-app-flutter, mobile-app-ios, mobile-app-android, cli-tool, library, api-service, data-science, desktop-app)
-- `__ADDITIONAL_RULES__` - Project-specific rules (you fill this in)
-
-The setup script automatically replaces placeholders except `__ADDITIONAL_RULES__`, which you customize manually.
-
-## Journaling
-
-Track your personal observations and learnings about AI tool usage:
-
-**Format**: `journal/YYYY/YYYY-MM-DD.md`
-
-**Quick entry**:
-```bash
-~/ai-tools/scripts/journal.sh Your observation here
-```
-
-**Manual entry**: Edit today's file directly
-
-**Note**: Journal is for your personal thoughts only - not for automated logging.
-
-See [journal/README.md](journal/README.md) for details.
-
-## Documentation
-
-### Standards
-
-Language-specific coding standards:
-
-- [Python](docs/standards/python.md) - Black, Ruff, mypy, pytest
-- [Dart/Flutter](docs/standards/dart-flutter.md) - dart format, flutter analyze, cross-platform
-- [Swift/Apple](docs/standards/swift-apple.md) - SwiftLint, SwiftFormat, iOS/macOS/watchOS
-
-The system is language-agnostic - add standards for any language your projects use.
-
-### Guides
-
-- [Ollama Local Setup](docs/guides/ollama-guide.md) - Local LLM setup with Continue
-- [OpenAI Codex](docs/guides/openai-codex.md) - Codex evolution: original API (deprecated 2023) and new suite (2024-2025)
-- [Python Library Packaging](docs/guides/python-library-packaging.md) - PyPI publishing with GitHub Actions automation
-
-### Usage
-
-- [Project Integration Guide](docs/USAGE.md) - How to use this system
-- [Maintenance Guide](docs/MAINTENANCE.md) - Updating and evolving the system
-
-## Supported Tools
-
-- **Warp Terminal** - Uses `warp.md` in project root
-- **Cursor** - Uses `.cursorrules` in project root
-- **Continue (VS Code)** - Uses `.continue-config` in project root
-- **GitHub Copilot** - Uses `.github-copilot` in project root with in-code comment references
-- **OpenAI Codex (VS Code)** - Uses `.openai-codex` in project root (requires ChatGPT Plus/Pro/Business/Enterprise)
-
-## Maintenance
-
-See [docs/MAINTENANCE.md](docs/MAINTENANCE.md) for:
-- Adding/updating standards and patterns
-- Template evolution
-- Version management
-- Journal housekeeping
+---
+*This repository demonstrates a disciplined, expert-led approach to AI leverage—using tools to accelerate architecture and verification, not to replace engineering judgment.*
